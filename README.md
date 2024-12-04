@@ -19,3 +19,6 @@ Aquesta és una aplicació API REST que respon a les següents crides:
 5. Comprovar l'accés al servei ofert per pod: 
     1. curl -X GET http://rest-server.local/date // {"date":"2024-12-04 09:32:15"}
     2. curl -X POST http://rest-server.local/store -H "Content-Type: application/json" -d '{"a":1}' // "message": "Data received and stored: {'a': 1}"
+6. Desplegar Kong aplicant els helm charts: https://github.com/bitnami/charts/blob/main/bitnami/kong/values.yaml
+7. Configurar les rutes, serveis necessaris per accedir al rest-server.
+8. Crear usuari amb credencial( p.e.  apikey: c182cca8a7c1cc3659369fdba0bc3f27a74c804fc8ebf738dd2ad9ba76a78c73) i activar plugins per customitzar el consum que pot fer dels serveis (key-auth, rate-limit, ip-restric, request-max-size...)
