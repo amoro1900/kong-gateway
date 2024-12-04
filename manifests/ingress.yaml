@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rest-ingress
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: rest-server.local 
+    http:
+      paths:
+      - backend:
+          service:
+            name: rest-service
+            port:
+              number: 8080
+        path: 
+        pathType: ImplementationSpecific
