@@ -96,8 +96,8 @@ env:
   nginx_worker_processes: "2"
   prefix: /kong_prefix/
   log_level: notice # change the level of loggin on /kong_prefix/nginx.conf. Values [debug, info, notice, warn, error, crit]
-  proxy_access_log: /dev/stdout 
-  proxy_error_log: /dev/stderr 
+  proxy_access_log: proxy_access.log #/dev/stdout 
+  proxy_error_log: proxy_error.log #/dev/stderr 
   admin_access_log: admin_api_access.log #/dev/stdout
   admin_error_log: admin_api_error.log  #/dev/stderr 
   admin_gui_access_log: manager_access.log #/dev/stdout 
@@ -112,12 +112,12 @@ env:
   pg_database: kong
   pg_user: kong
   pg_password: ilimit123
-  pg_host: kong-postgresql.blockchain.svc.cluster.local
+  pg_host: kong-postgresql.default.svc.cluster.local
   pg_ssl: "on"
   password: ilimit123
 
 # This section is any customer specific environments variables that doesn't require KONG_ prefix.
-# These custom environment variables are typicall used in custom plugins or serverless plugins to
+# These custom environment variables are typi call used in custom plugins or serverless plugins to
 # access environment specific credentials or tokens.
 # Example as below, uncomment if required and add additional attributes as required.
 # Note that these environment variables will only apply to the proxy and init container. The ingress-controller
@@ -317,9 +317,9 @@ proxy:
     # nodePort: 32080
     # Additional listen parameters, e.g. "reuseport", "backlog=16384"
     parameters: []
-    commonName: "masscert-api.minikube.cat"
+    commonName: "kong-api.minikube.cat"
     dnsNames: 
-      - "masscert-api.minikube.cat"
+      - "kong-api.minikube.cat"
 
   tls:
     # Enable HTTPS listen for the proxy

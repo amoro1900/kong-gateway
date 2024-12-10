@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: rest-server.local 
+  - host: rest-server.cat
     http:
       paths:
       - backend:

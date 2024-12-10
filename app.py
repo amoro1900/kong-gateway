@@ -1,7 +1,15 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
+import logging
 
 app = Flask(__name__)
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+
+@app.before_request
+def log_request_path():
+    logging.info(f"Request path: {request.path}")
 
 # Route 1: GET - Returns the current date
 @app.route('/date', methods=['GET'])
