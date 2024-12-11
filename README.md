@@ -19,7 +19,7 @@ Aquesta és una aplicació API REST que respon a les següents crides:
 5. Comprovar l'accés al servei ofert per pod: 
     1. curl -X GET http://rest-server.cat/date // {"date":"2024-12-04 09:32:15"}
     2. curl -X POST http://rest-server.cat/store -H "Content-Type: application/json" -d '{"a":1}' // "message": "Data received and stored: {'a': 1}"
-6. Configurar minikube perquè doni external IPs als serveis de tipus LoadBalancer executant en una terminal 'minikube tunnel'. ALERTA!! No tancar aquesta terminal per deixar el tunnel obert.
+6. Configurar minikube perquè doni external IPs als serveis de tipus LoadBalancer executant en una terminal 'minikube tunnel' (create a bridge between Minikube and our machine). ALERTA!! No tancar aquesta terminal per deixar el tunnel obert.
 7. Instal·lar el repositori de Kong: helm repo add kong https://charts.konghq.com && helm repo update
 8. Desplegar Kong aplicant el helm chart de Kong i el values de la carpeta charts: helm upgrade --install kong kong/kong --values ./charts/values.yaml
 9. Validar que el pod que executa l'eina de kong (kong-proxy-xxxxx) està executant-se correctament (running): kube -n kong get pods.  
